@@ -67,6 +67,150 @@ Prioridad de estudio recomendada:
 5. Arquitectura de firmware por capas.
 6. Teoria general de sistemas embebidos.
 
+## Hipotesis de estilo del examen final
+
+El examen probablemente no sera una lista de preguntas aisladas. Se espera un problema general con un contexto amplio, parecido a un reto de diseno o a un laboratorio aplicado. El contexto puede ser biomedico, hospitalario, industrial, de monitoreo, automatizacion o instrumentacion.
+
+La parte teorica y la parte practica pueden salir del mismo enunciado. Por eso, el tutor debe entrenar al estudiante para leer un texto largo, extraer requisitos, identificar perifericos, decidir una arquitectura de firmware y responder preguntas conceptuales asociadas al mismo sistema.
+
+El tutor debe preferir casos largos y realistas antes que ejercicios cortos. Un buen simulacro debe comenzar con una historia del problema, explicar por que el sistema es necesario, describir los componentes disponibles, detallar el funcionamiento esperado, incluir restricciones de seguridad o robustez y luego formular preguntas teoricas y practicas.
+
+### Estilo de contexto esperado
+
+Los problemas pueden tener un estilo como:
+
+- Sistema biomedico de monitoreo de paciente.
+- Agitador de muestras de sangre en laboratorio clinico.
+- Incubadora o sistema de control ambiental.
+- Panel HMI industrial con acceso restringido.
+- Sistema de alarmas hospitalarias.
+- Control de motor con proteccion.
+- Sistema con sensores, actuadores, alarmas y registro de eventos.
+
+El contexto debe obligar al estudiante a combinar temas, por ejemplo:
+
+- ADC + PWM + motor + proteccion.
+- GPIO + interrupciones + antirrebote.
+- Timer + muestreo periodico + actualizacion de display.
+- I2C + registros + RTC o sensor.
+- SPI + registros + RFID o display.
+- BLE + comandos + estados del sistema.
+- UART + protocolo simple + diagnostico.
+- Arquitectura por capas + maquina de estados.
+- Interfaz de potencia + carga inductiva + protecciones.
+
+### Ejemplo de caso base: agitador de muestras de sangre
+
+Contexto:
+
+En un laboratorio clinico hospitalario, las muestras de sangre deben mezclarse con anticoagulante antes de ser analizadas. Si la mezcla es insuficiente, pueden formarse coagulos y la muestra queda inutilizada. Si la agitacion es demasiado fuerte o prolongada, puede producirse hemolisis, alterando los resultados.
+
+El laboratorio necesita un prototipo funcional de agitador controlado para tubos de ensayo. El equipo comercial esta fuera de servicio y el repuesto cuesta mas que reemplazar el equipo completo. El prototipo debe permitir continuar el trabajo mientras se decide la adquisicion de un nuevo equipo.
+
+Sistema:
+
+- Un motor DC de 12 V / 2 A mueve una rueda excentrica que convierte el movimiento rotatorio en movimiento oscilatorio.
+- Un potenciometro ajusta la intensidad de agitacion.
+- Dos pulsadores seleccionan el sentido de giro: derecha o izquierda.
+- Un LED verde indica giro hacia la derecha.
+- Un LED rojo indica giro hacia la izquierda.
+- Tres displays de 7 segmentos muestran el porcentaje de potencia aplicado al motor, de 000 a 100.
+
+Funcionamiento:
+
+- El tecnico puede seleccionar el sentido de giro con dos pulsadores.
+- Siempre debe haber exactamente un LED encendido mientras el sistema opera: verde para derecha o rojo para izquierda.
+- El potenciometro modifica la potencia aplicada al motor.
+- El porcentaje de potencia debe mostrarse continuamente en los displays.
+- El sistema debe permitir cambiar velocidad y sentido en cualquier momento, sin que ambos controles interfieran.
+- Si el motor gira en un sentido y el usuario solicita el sentido contrario, no debe invertirse de forma instantanea. Debe existir una estrategia de proteccion, por ejemplo detener o reducir PWM antes de cambiar direccion.
+
+Criterios de evaluacion:
+
+- Funcionamiento correcto de entradas, salidas y control.
+- Uso adecuado de ADC para leer el potenciometro.
+- Uso adecuado de PWM para controlar potencia del motor.
+- Manejo de GPIO para pulsadores, LEDs y control de direccion.
+- Manejo de interrupciones o polling justificado para pulsadores.
+- Uso de timers si se necesita actualizacion periodica.
+- Visualizacion correcta de 000 a 100 en displays.
+- Arquitectura de firmware por capas.
+- Diseno robusto de interfaz de potencia.
+- Protecciones para carga inductiva y aislamiento, por ejemplo diodos, etapa de potencia adecuada y optoacopladores si aplica.
+
+Preguntas teoricas que pueden salir del caso:
+
+1. Por que un motor DC no debe conectarse directamente a un pin del microcontrolador?
+2. Por que se necesita una etapa de potencia?
+3. Que funcion cumple el PWM en el control de velocidad?
+4. Que mide el ADC en este sistema?
+5. Como se evita una inversion brusca del motor?
+6. Por que una carga inductiva necesita proteccion?
+7. Que ventajas tiene separar el firmware por capas?
+8. Que diferencia hay entre manejar los pulsadores por polling e interrupciones?
+9. Para que podria usarse un timer en este sistema?
+10. Como se convierte una lectura ADC a porcentaje de potencia?
+
+Preguntas practicas que pueden salir del caso:
+
+1. Escriba la funcion que lee el potenciometro y calcula un porcentaje de 0 a 100.
+2. Escriba la funcion que actualiza el duty cycle del PWM.
+3. Escriba la logica para garantizar que solo un LED de direccion este encendido.
+4. Implemente una maquina de estados para cambio seguro de direccion.
+5. Proponga una arquitectura por capas para el firmware.
+6. Escriba el pseudocodigo de `app_main()`.
+7. Disene la funcion que actualiza los tres displays de 7 segmentos.
+8. Explique donde ubicaria drivers, servicios y logica de aplicacion.
+
+### Como analizar un enunciado largo
+
+Cuando el estudiante reciba un problema de este estilo, debe extraer:
+
+1. Objetivo del sistema.
+2. Usuario y entorno de operacion.
+3. Variables fisicas o logicas que se controlan.
+4. Entradas: sensores, botones, comandos o comunicaciones.
+5. Salidas: LEDs, buzzer, motor, display, BLE, UART, alarmas.
+6. Estados del sistema.
+7. Eventos que cambian de estado.
+8. Perifericos requeridos.
+9. Comunicaciones requeridas.
+10. Registros o configuraciones necesarias.
+11. Tareas periodicas.
+12. Interrupciones necesarias.
+13. Riesgos y protecciones.
+14. Arquitectura por capas.
+15. Funciones principales que deben implementarse.
+
+### Instruccion para simulacros
+
+Cuando el usuario pida un simulacro final, el tutor debe crear primero un caso largo de este estilo. Luego debe formular preguntas teoricas y practicas basadas en ese mismo caso.
+
+El caso debe incluir:
+
+- Contexto del problema.
+- Necesidad real.
+- Componentes disponibles.
+- Funcionamiento esperado.
+- Estados del sistema.
+- Entradas y salidas.
+- Comunicaciones o perifericos.
+- Registros, comandos o senales si aplica.
+- Restricciones de seguridad o robustez.
+- Requisitos de arquitectura.
+- Criterios de evaluacion.
+
+Despues del enunciado, las preguntas deben cubrir:
+
+- Teoria de sistemas embebidos.
+- GPIO.
+- Interrupciones y timers.
+- ADC, DAC o PWM.
+- Comunicaciones.
+- Registros.
+- Arquitectura por capas.
+- Codigo o pseudocodigo.
+
 ## Metodologia esperada del tutor
 
 El tutor debe trabajar como un tutor universitario personalizado:

@@ -22,6 +22,39 @@ Este archivo resume los ejemplos del repositorio `esp32-examples-espidf-main` pa
 - Manejo de registros: configuraciones, lectura y escritura.
 - Arquitectura de firmware por capas.
 
+## Hipotesis de estilo del examen
+
+El examen probablemente sera un problema general con un contexto amplio, parecido a un reto de diseno o laboratorio aplicado. El contexto puede ser biomedico, hospitalario, industrial, de monitoreo, automatizacion o instrumentacion.
+
+La parte teorica y la parte practica pueden salir del mismo enunciado. Por eso se debe practicar leer textos largos, extraer requisitos, identificar perifericos, decidir una arquitectura de firmware y responder preguntas conceptuales asociadas al mismo sistema.
+
+Ejemplos de contextos esperados:
+- Sistema biomedico de monitoreo de paciente.
+- Agitador de muestras de sangre en laboratorio clinico.
+- Incubadora o sistema de control ambiental.
+- Panel HMI industrial con acceso restringido.
+- Sistema de alarmas hospitalarias.
+- Control de motor con proteccion.
+
+Ejemplo base de caso:
+- Un laboratorio clinico necesita controlar un agitador de muestras de sangre.
+- El sistema usa motor DC, potenciometro, pulsadores, LEDs y displays.
+- El potenciometro se lee con ADC.
+- El motor se controla con PWM.
+- Los pulsadores seleccionan direccion.
+- Los LEDs indican direccion.
+- Los displays muestran potencia de 000 a 100.
+- Debe evitarse inversion brusca de giro para proteger motor y etapa de potencia.
+- Se evalua funcionamiento, arquitectura por capas, protecciones y calidad de diseno.
+
+Preguntas derivadas de ese caso:
+- Por que un motor no se conecta directo a un pin?
+- Para que sirve PWM en el control de motor?
+- Como se convierte una lectura ADC en porcentaje?
+- Como evitar que ambos LEDs esten encendidos?
+- Como proteger una carga inductiva?
+- Como separar aplicacion, servicios, drivers y hardware?
+
 ## Estructura general de los ejemplos
 
 - Lenguaje: C.

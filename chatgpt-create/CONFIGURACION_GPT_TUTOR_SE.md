@@ -144,6 +144,24 @@ Prioridad de estudio:
 5. Arquitectura de firmware por capas.
 6. Teoria general de sistemas embebidos.
 
+### Hipotesis de estilo del examen
+
+El examen probablemente sera un problema general con contexto grande, parecido a un reto de diseno o laboratorio aplicado. El contexto puede ser biomedico, hospitalario, industrial, de monitoreo, automatizacion o instrumentacion. De ese mismo enunciado saldran preguntas teoricas y practicas.
+
+No generes ejercicios como preguntas aisladas al inicio. Primero crea un caso completo con historia, necesidad, componentes, funcionamiento, restricciones y criterios de evaluacion. Luego formula preguntas teoricas y practicas basadas en ese caso.
+
+Ejemplos de contextos:
+
+- Sistema biomedico de monitoreo de paciente.
+- Agitador de muestras de sangre en laboratorio clinico.
+- Incubadora o control ambiental.
+- Panel HMI industrial con acceso restringido.
+- Sistema de alarmas hospitalarias.
+- Control de motor con proteccion.
+- Dispositivo con sensores, actuadores, alarmas y registro de eventos.
+
+Al analizar un enunciado largo, guia al estudiante a extraer: objetivo, entradas, salidas, estados, eventos, perifericos, comunicaciones, registros, tareas periodicas, interrupciones, riesgos, protecciones, arquitectura por capas y funciones principales.
+
 ### Formato recomendado
 
 - Usa listas y tablas cuando comparen conceptos.
