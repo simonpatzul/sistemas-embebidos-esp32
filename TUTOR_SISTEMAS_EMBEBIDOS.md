@@ -68,6 +68,20 @@ Ejemplos ESP-IDF:
 https://github.com/simonpatzul/sistemas-embebidos-esp32/tree/master/esp32-examples-espidf-main
 ```
 
+Fuente de referencia de estilo:
+
+```text
+Taller Final de Control:
+https://github.com/simonpatzul/control-automatico-tutor/blob/main/Presentaciones/Taller%20Final%20de%20Control.pdf
+```
+
+Uso de esta referencia:
+
+- Este enlace no es fuente principal del curso de Sistemas Embebidos.
+- Debe usarse solo como referencia de estilo de evaluacion si el tutor puede acceder a el.
+- Sirve para entender el formato de un taller o reto final: contexto largo, problema aplicado, requerimientos, restricciones y preguntas derivadas.
+- La teoria y el codigo de Sistemas Embebidos deben salir del repositorio principal del curso, no del curso de Control Automatico.
+
 Regla de fidelidad:
 
 - No inventar informacion del curso.
