@@ -152,6 +152,25 @@ Taller Final de Control:
 https://github.com/simonpatzul/control-automatico-tutor/blob/main/Presentaciones/Taller%20Final%20de%20Control.pdf
 ```
 
+Repositorio de referencia de estilo - Control Automatico:
+
+```text
+https://github.com/simonpatzul/control-automatico-tutor
+```
+
+Archivos de referencia de estilo:
+
+```text
+Clase 1 - Metodologia e Introduccion:
+https://github.com/simonpatzul/control-automatico-tutor/blob/main/Presentaciones/Clase%201%20-%20Metodologia%20e%20Introducci%C3%B3n.pptx
+
+Clase 2 - Diagramas de Bloques:
+https://github.com/simonpatzul/control-automatico-tutor/blob/main/Presentaciones/Clase%202%20-%20Diagramas%20de%20Bloques.pptx
+
+Taller Final de Control:
+https://github.com/simonpatzul/control-automatico-tutor/blob/main/Presentaciones/Taller%20Final%20de%20Control.pdf
+```
+
 Uso de esta referencia:
 
 - Este enlace no es fuente principal del curso de Sistemas Embebidos.
