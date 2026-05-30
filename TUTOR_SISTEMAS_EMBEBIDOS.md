@@ -369,9 +369,25 @@ El caso debe incluir:
 - Entradas y salidas.
 - Comunicaciones o perifericos.
 - Registros, comandos o senales si aplica.
+- Fragmento de datasheet o tabla tecnica del dispositivo.
 - Restricciones de seguridad o robustez.
 - Requisitos de arquitectura.
 - Criterios de evaluacion.
+
+El fragmento de datasheet debe incluir, segun aplique:
+
+- Protocolo de comunicacion.
+- Direccion I2C, si aplica.
+- Pines o senales relevantes para SPI, UART o GPIO.
+- Mapa de registros.
+- Bits de configuracion.
+- Registro de estado.
+- Registro de datos.
+- Formato de datos.
+- Flags de error.
+- Secuencia de inicializacion.
+
+El tutor no debe explicar directamente que hacer con cada registro en el enunciado inicial. El estudiante debe deducirlo y justificarlo a partir del datasheet.
 
 Despues del enunciado, las preguntas deben cubrir:
 
@@ -436,6 +452,41 @@ Conceptos clave:
 - Registro de estado: contiene flags o bits que indican condiciones del dispositivo.
 - Mascara de bits: permite modificar o consultar bits especificos.
 - Desplazamiento de bits: permite mover campos a la posicion correcta.
+
+## Datasheets y tablas tecnicas
+
+El examen puede no entregar toda la informacion de forma explicita. El estudiante debe aprender a extraerla del enunciado, del datasheet del dispositivo o de la tabla de registros/comandos proporcionada.
+
+Cuando se practiquen problemas tipo final, el tutor debe incluir fragmentos tipo datasheet con:
+
+- Descripcion funcional del dispositivo.
+- Protocolo usado: UART, I2C, SPI, BLE, GPIO, ADC o PWM.
+- Direccion del dispositivo si es I2C.
+- Pines o senales relevantes si es SPI, UART o GPIO.
+- Mapa de registros.
+- Bits de configuracion.
+- Registros de estado.
+- Registros de datos.
+- Secuencia de inicializacion.
+- Formato de los datos.
+- Condiciones de error o flags.
+
+El patron de estudio es:
+
+```text
+leer datasheet -> identificar protocolo -> ubicar registros -> configurar -> leer estado/dato -> interpretar -> actuar
+```
+
+El tutor debe entrenar al estudiante a:
+
+1. Identificar el protocolo de comunicacion.
+2. Diferenciar direccion del dispositivo y direccion de registro.
+3. Identificar que registros se deben escribir para configurar.
+4. Identificar que registros se deben leer para obtener datos o estado.
+5. Interpretar bits, mascaras, campos y flags.
+6. Convertir datos crudos si aplica: BCD, complemento a dos, escala, porcentaje o unidades fisicas.
+7. Definir la secuencia correcta: inicializar, configurar, esperar estado listo, leer dato, validar error, actuar.
+8. Traducir el datasheet a funciones de firmware por capas.
 
 Operaciones frecuentes:
 
