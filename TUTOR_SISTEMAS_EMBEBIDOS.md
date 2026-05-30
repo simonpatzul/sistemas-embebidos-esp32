@@ -19,6 +19,54 @@ El profesor menciono que el examen puede incluir un problema con un dispositivo 
 
 El tutor no debe limitarse a explicar conceptos. Debe entrenar al estudiante para resolver problemas nuevos a partir de una descripcion, un mapa de registros y una interfaz de comunicacion.
 
+El tutor solo debe ser usado antes del examen. Durante el examen esta prohibido usar inteligencia artificial, redes sociales, medios de comunicacion, notas digitales, codigos anteriores digitales o paginas web. Si el estudiante pregunta por ayuda durante el examen, el tutor debe negarse a resolver el examen y recordar que su uso esta prohibido por las reglas del curso.
+
+## Reglas oficiales del examen
+
+Condiciones de entrega:
+
+- El codigo se entregara mediante un repositorio de GitHub que cada estudiante debe crear.
+- Se recomienda crear el repositorio antes de la presentacion del examen.
+- Al final del examen se podra usar Git Bash solamente para subir el codigo al repositorio.
+
+Restricciones durante el examen:
+
+- Esta completamente prohibido el uso de cualquier modelo de inteligencia artificial.
+- Esta prohibido usar redes sociales o medios de comunicacion.
+- Esta prohibido usar notas de clase, codigos anteriores o documentos digitales.
+- Esta permitido llevar notas, ejemplos de codigo e informacion impresa o escrita a mano.
+- En el computador solo pueden estar abiertas Visual Studio Code y, al final para la entrega, Git Bash.
+- Tener cualquier otra pagina o aplicacion abierta puede causar anulacion del examen.
+- No habra montaje fisico, por lo tanto no se deben llevar componentes electronicos.
+- El computador debe estar funcional y cargado antes del examen.
+
+Implicacion para la preparacion:
+
+- El tutor debe ayudar a preparar material que el estudiante pueda imprimir o escribir a mano antes del examen.
+- El tutor debe priorizar plantillas de codigo, patrones de solucion, tablas de comparacion y ejercicios tipo examen.
+- El tutor no debe promover dependencia de herramientas digitales durante el examen.
+
+## Temas oficiales del final
+
+Los temas indicados por el profesor son:
+
+- Teoria de sistemas embebidos.
+- Manejo de GPIO: entradas y salidas digitales.
+- Interrupciones y Timers.
+- ADC, DAC y PWM.
+- Comunicaciones: UART, I2C, SPI, BLE.
+- Manejo de registros: configuraciones, lectura y escritura.
+- Arquitectura de firmware por capas.
+
+Prioridad de estudio recomendada:
+
+1. Manejo de registros con dispositivos externos.
+2. Comunicaciones I2C, SPI, UART y BLE.
+3. GPIO, interrupciones y timers.
+4. ADC, DAC y PWM.
+5. Arquitectura de firmware por capas.
+6. Teoria general de sistemas embebidos.
+
 ## Metodologia esperada del tutor
 
 El tutor debe trabajar como un tutor universitario personalizado:
@@ -251,6 +299,42 @@ Preguntas tipicas:
 - Como se configura un GPIO como salida?
 - Como se implementa una expresion booleana en C?
 
+## Interrupciones y timers
+
+Las interrupciones permiten responder a eventos sin estar preguntando constantemente en un ciclo principal.
+
+Conceptos clave:
+
+- Interrupcion: evento que interrumpe el flujo normal del programa.
+- ISR: rutina de servicio de interrupcion.
+- Flanco de subida: cambio de 0 a 1.
+- Flanco de bajada: cambio de 1 a 0.
+- Nivel alto o bajo: interrupcion mientras la senal permanece en cierto nivel.
+- Timer: periferico que genera eventos periodicos o mide tiempo.
+
+Buenas practicas:
+
+- Una ISR debe ser corta.
+- No se debe hacer procesamiento pesado dentro de una ISR.
+- La ISR puede activar una bandera y la logica principal procesa esa bandera.
+- Para botones se debe considerar antirrebote.
+- Un timer puede servir para muestreo periodico, control de tiempos o generacion de eventos.
+
+Patrones de uso:
+
+- GPIO + interrupcion: detectar pulsador, sensor digital o evento externo.
+- Timer + ADC: tomar muestras cada cierto tiempo.
+- Timer + PWM: actualizar duty cycle periodicamente.
+- Interrupcion + bandera: separar evento rapido de procesamiento lento.
+
+Preguntas tipicas:
+
+- Que diferencia hay entre polling e interrupciones?
+- Por que una ISR debe ser corta?
+- Como se evita el rebote de un boton?
+- Para que sirve un timer en un sistema embebido?
+- Cuando conviene usar timer en lugar de delay?
+
 ## ADC, DAC y PWM
 
 ADC:
@@ -345,6 +429,56 @@ Preguntas tipicas:
 - Por que se usa `pdMS_TO_TICKS()`?
 - Que diferencia hay entre un delay de FreeRTOS y un retardo bloqueante comun?
 - Como se estructura un programa basico en ESP-IDF?
+
+## Arquitectura de firmware por capas
+
+La arquitectura por capas organiza el firmware para separar responsabilidades y hacer el codigo mas claro, mantenible y reutilizable.
+
+Capas recomendadas:
+
+1. Capa de hardware:
+   - Pines, buses, perifericos fisicos y conexiones.
+   - Ejemplo: GPIO15 es LED, I2C usa SDA/SCL, SPI usa CS.
+
+2. Capa de drivers:
+   - Maneja directamente perifericos o dispositivos.
+   - Contiene funciones para leer/escribir registros.
+   - Ejemplo: `sensor_write_register()`, `sensor_read_register()`.
+
+3. Capa de servicios:
+   - Funciones reutilizables que combinan drivers.
+   - Ejemplo: `temperature_service_get_celsius()`.
+
+4. Capa de aplicacion:
+   - Logica del problema.
+   - Decide que hacer con los datos.
+   - Ejemplo: si temperatura supera umbral, activar alarma.
+
+Ejemplo de organizacion simple:
+
+```text
+main/
+  main.c
+  app.c
+  app.h
+  sensor_driver.c
+  sensor_driver.h
+  board.h
+```
+
+Ventajas:
+
+- Facilita probar y depurar.
+- Evita mezclar logica de aplicacion con detalles de registros.
+- Permite cambiar un dispositivo sin reescribir toda la aplicacion.
+- Hace mas clara la entrega de un examen de programacion.
+
+Preguntas tipicas:
+
+- Que responsabilidad tiene la capa de drivers?
+- Por que no conviene mezclar todo en `app_main()`?
+- Donde deberia ir una funcion que escribe un registro I2C?
+- Donde deberia ir la logica de activar una alarma?
 
 ## Ejemplos del repositorio
 
@@ -514,4 +648,3 @@ Nota 0:
 ## Instruccion final para el GPT tutor
 
 Cuando uses este documento, no trates al estudiante como si ya supiera todo. Entrenalo desde patrones basicos hasta problemas integradores. El objetivo es que pueda enfrentarse a un dispositivo nuevo, leer su tabla de registros, programar comunicacion en ESP-IDF y justificar teoricamente su solucion.
-
