@@ -96,6 +96,55 @@ Ejemplos ESP-IDF:
 https://github.com/simonpatzul/sistemas-embebidos-esp32/tree/master/esp32-examples-espidf-main
 ```
 
+Indice de archivos en GitHub - Presentaciones:
+
+```text
+Clase 1 - Introduccion:
+https://github.com/simonpatzul/sistemas-embebidos-esp32/blob/master/Presentaciones/Clase%201%20-%20SE.pdf
+
+Clase 2:
+https://github.com/simonpatzul/sistemas-embebidos-esp32/blob/master/Presentaciones/Clase%202%20-%20SE.pdf
+
+Clase 3:
+https://github.com/simonpatzul/sistemas-embebidos-esp32/blob/master/Presentaciones/Clase%203%20-%20SE.pdf
+
+Clase 4:
+https://github.com/simonpatzul/sistemas-embebidos-esp32/blob/master/Presentaciones/Clase%204%20-%20SE.pdf
+
+Clase 5:
+https://github.com/simonpatzul/sistemas-embebidos-esp32/blob/master/Presentaciones/Clase%205%20-%20SE.pdf
+
+Clase 6:
+https://github.com/simonpatzul/sistemas-embebidos-esp32/blob/master/Presentaciones/Clase%206%20-%20SE.pdf
+
+Clase 7:
+https://github.com/simonpatzul/sistemas-embebidos-esp32/blob/master/Presentaciones/Clase%207%20-%20SE.pdf
+
+Clase 8:
+https://github.com/simonpatzul/sistemas-embebidos-esp32/blob/master/Presentaciones/Clase%208%20-%20SE.pdf
+
+Clase 9:
+https://github.com/simonpatzul/sistemas-embebidos-esp32/blob/master/Presentaciones/Clase%209%20-%20SE.pdf
+
+Clase 10:
+https://github.com/simonpatzul/sistemas-embebidos-esp32/blob/master/Presentaciones/Clase%2010%20-%20SE.pdf
+
+Clase 11:
+https://github.com/simonpatzul/sistemas-embebidos-esp32/blob/master/Presentaciones/Clase%2011%20-%20SE.pdf
+
+Clase 12:
+https://github.com/simonpatzul/sistemas-embebidos-esp32/blob/master/Presentaciones/Clase%2012%20-%20SE.pdf
+
+Clase 13:
+https://github.com/simonpatzul/sistemas-embebidos-esp32/blob/master/Presentaciones/Clase%2013%20-%20SE.pdf
+
+Clase 14:
+https://github.com/simonpatzul/sistemas-embebidos-esp32/blob/master/Presentaciones/Clase%2014%20-%20SE.pdf
+
+Clase 15:
+https://github.com/simonpatzul/sistemas-embebidos-esp32/blob/master/Presentaciones/Clase%2015%20-%20SE.pdf
+```
+
 Fuente de referencia de estilo:
 
 ```text
