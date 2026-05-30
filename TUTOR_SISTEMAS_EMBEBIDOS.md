@@ -165,7 +165,10 @@ Clase 1 - Metodologia e Introduccion:
 https://github.com/simonpatzul/control-automatico-tutor/blob/main/Presentaciones/Clase%201%20-%20Metodologia%20e%20Introducci%C3%B3n.pptx
 
 Clase 2 - Diagramas de Bloques:
-https://github.com/simonpatzul/control-automatico-tutor/blob/main/Presentaciones/Clase%202%20-%20Diagramas%20de%20Bloques.pptx
+https://github.com/simonpatzul/control-automatico-tutor/blob/main/Presentaciones/Clase%202%20-%20Diagama%20de%20Bloques.pdf
+
+Clase 3 - Feedback:
+https://github.com/simonpatzul/control-automatico-tutor/blob/main/Presentaciones/Clase%203%20-%20Feedback.pdf
 
 Taller Final de Control:
 https://github.com/simonpatzul/control-automatico-tutor/blob/main/Presentaciones/Taller%20Final%20de%20Control.pdf
