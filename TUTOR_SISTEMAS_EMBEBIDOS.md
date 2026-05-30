@@ -57,7 +57,7 @@ Mapa de busqueda por tema:
 - Bluetooth Classic SPP: buscar en `esp32-examples-espidf-main/ESP32_BT_SPP`.
 - Manejo de registros: buscar en `TUTOR_SISTEMAS_EMBEBIDOS.md`, `Laboratorios/` y ejemplos de I2C, SPI, BLE o UART.
 - Arquitectura de firmware por capas: buscar en `TUTOR_SISTEMAS_EMBEBIDOS.md` y usar ejemplos del repo para proponer separacion en aplicacion, servicios, drivers y hardware.
-- Estilo de enunciados largos o casos aplicados: buscar en `Laboratorios/` y en la fuente de referencia de estilo.
+- Estilo de enunciados largos o casos aplicados: buscar en `Laboratorios/` y en `TUTOR_SISTEMAS_EMBEBIDOS.md`.
 
 Regla para responder preguntas por tema:
 
@@ -102,84 +102,78 @@ Indice de archivos en GitHub - Presentaciones:
 Clase 1 - Introduccion:
 https://github.com/simonpatzul/sistemas-embebidos-esp32/blob/master/Presentaciones/Clase%201%20-%20SE.pdf
 
-Clase 2:
+Tema: Introduccion a los sistemas embebidos. Definicion, caracteristicas, funcion especifica, interaccion con el mundo fisico, recursos limitados y confiabilidad.
+
+Clase 2 - Procesamiento en sistemas embebidos:
 https://github.com/simonpatzul/sistemas-embebidos-esp32/blob/master/Presentaciones/Clase%202%20-%20SE.pdf
 
-Clase 3:
+Tema: Bloque de procesamiento, ejecucion de instrucciones, toma de decisiones, coordinacion de perifericos, comunicaciones y gestion de energia.
+
+Clase 3 - Introduccion a la programacion de microcontroladores:
 https://github.com/simonpatzul/sistemas-embebidos-esp32/blob/master/Presentaciones/Clase%203%20-%20SE.pdf
 
-Clase 4:
+Tema: Codigo fuente, preprocesador, compilacion, traduccion a lenguaje maquina y proceso general de programacion de microcontroladores.
+
+Clase 4 - GPIO entradas y salidas:
 https://github.com/simonpatzul/sistemas-embebidos-esp32/blob/master/Presentaciones/Clase%204%20-%20SE.pdf
 
-Clase 5:
+Tema: Pines GPIO, configuracion como entrada o salida, lectura de senales, envio de senales, entradas digitales y salidas digitales.
+
+Clase 5 - Desarrollo de firmware y control de versiones Git:
 https://github.com/simonpatzul/sistemas-embebidos-esp32/blob/master/Presentaciones/Clase%205%20-%20SE.pdf
 
-Clase 6:
+Tema: Git, control de versiones, historial de cambios, administracion de archivos de proyecto y entrega de codigo.
+
+Clase 6 - Timers:
 https://github.com/simonpatzul/sistemas-embebidos-esp32/blob/master/Presentaciones/Clase%206%20-%20SE.pdf
 
-Clase 7:
+Tema: Medicion de tiempo, acciones periodicas, temporizacion precisa, eventos temporales y evitar bloquear completamente la CPU.
+
+Clase 7 - Interrupciones:
 https://github.com/simonpatzul/sistemas-embebidos-esp32/blob/master/Presentaciones/Clase%207%20-%20SE.pdf
 
-Clase 8:
+Tema: Polling vs interrupciones, reaccion ante eventos, eficiencia del procesador, eventos externos e ISR.
+
+Clase 8 - Entradas analogicas ADC:
 https://github.com/simonpatzul/sistemas-embebidos-esp32/blob/master/Presentaciones/Clase%208%20-%20SE.pdf
 
-Clase 9:
+Tema: Conversion analogico-digital, sensores analogicos, voltajes continuos, cuantizacion y lectura de fenomenos fisicos.
+
+Clase 9 - Salidas analogicas DAC y PWM:
 https://github.com/simonpatzul/sistemas-embebidos-esp32/blob/master/Presentaciones/Clase%209%20-%20SE.pdf
 
-Clase 10:
+Tema: Generacion de senales, control de dispositivos fisicos, DAC, PWM, senales analogicas aproximadas y ciclo de trabajo.
+
+Clase 10 - Comunicacion serial UART:
 https://github.com/simonpatzul/sistemas-embebidos-esp32/blob/master/Presentaciones/Clase%2010%20-%20SE.pdf
 
-Clase 11:
+Tema: Interfaces de comunicacion, intercambio de informacion, comunicacion serial, UART, transmision y recepcion.
+
+Clase 11 - Comunicacion serial I2C:
 https://github.com/simonpatzul/sistemas-embebidos-esp32/blob/master/Presentaciones/Clase%2011%20-%20SE.pdf
 
-Clase 12:
+Tema: Protocolo I2C, comunicacion con multiples perifericos, pocas lineas, direccionamiento, registros y dispositivos externos.
+
+Clase 12 - Comunicacion serial SPI:
 https://github.com/simonpatzul/sistemas-embebidos-esp32/blob/master/Presentaciones/Clase%2012%20-%20SE.pdf
 
-Clase 13:
+Tema: Protocolo SPI, comunicacion serial sincrona, SCLK, MOSI, MISO, CS, dispositivos cercanos y escritura de registros.
+
+Clase 13 - Comunicacion inalambrica Bluetooth:
 https://github.com/simonpatzul/sistemas-embebidos-esp32/blob/master/Presentaciones/Clase%2013%20-%20SE.pdf
 
-Clase 14:
+Tema: Comunicacion inalambrica, Bluetooth, transmision por ondas electromagneticas, informacion digital sin cables y aplicaciones embebidas.
+
+Clase 14 - Bluetooth Low Energy BLE:
 https://github.com/simonpatzul/sistemas-embebidos-esp32/blob/master/Presentaciones/Clase%2014%20-%20SE.pdf
 
-Clase 15:
+Tema: BLE, bajo consumo, comunicacion de dispositivos cercanos, datos ocasionales o periodicos, servicios, caracteristicas y aplicaciones moviles.
+
+Clase 15 - Interfaces graficas Nextion:
 https://github.com/simonpatzul/sistemas-embebidos-esp32/blob/master/Presentaciones/Clase%2015%20-%20SE.pdf
+
+Tema: Interfaces graficas de usuario, pantalla tactil Nextion, interaccion con usuario, reemplazo de interfaces simples como LEDs, pulsadores, buzzers o LCD alfanumericas.
 ```
-
-Fuente de referencia de estilo:
-
-```text
-Taller Final de Control:
-https://github.com/simonpatzul/control-automatico-tutor/blob/main/Presentaciones/Taller%20Final%20de%20Control.pdf
-```
-
-Repositorio de referencia de estilo - Control Automatico:
-
-```text
-https://github.com/simonpatzul/control-automatico-tutor
-```
-
-Archivos de referencia de estilo:
-
-```text
-Clase 1 - Metodologia e Introduccion:
-https://github.com/simonpatzul/control-automatico-tutor/blob/main/Presentaciones/Clase%201%20-%20Metodologia%20e%20Introducci%C3%B3n.pptx
-
-Clase 2 - Diagramas de Bloques:
-https://github.com/simonpatzul/control-automatico-tutor/blob/main/Presentaciones/Clase%202%20-%20Diagama%20de%20Bloques.pdf
-
-Clase 3 - Feedback:
-https://github.com/simonpatzul/control-automatico-tutor/blob/main/Presentaciones/Clase%203%20-%20Feedback.pdf
-
-Taller Final de Control:
-https://github.com/simonpatzul/control-automatico-tutor/blob/main/Presentaciones/Taller%20Final%20de%20Control.pdf
-```
-
-Uso de esta referencia:
-
-- Este enlace no es fuente principal del curso de Sistemas Embebidos.
-- Debe usarse solo como referencia de estilo de evaluacion si el tutor puede acceder a el.
-- Sirve para entender el formato de un taller o reto final: contexto largo, problema aplicado, requerimientos, restricciones y preguntas derivadas.
-- La teoria y el codigo de Sistemas Embebidos deben salir del repositorio principal del curso, no del curso de Control Automatico.
 
 Regla de fidelidad:
 
