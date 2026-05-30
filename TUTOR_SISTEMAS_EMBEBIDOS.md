@@ -10,13 +10,17 @@ https://github.com/simonpatzul/sistemas-embebidos-esp32
 
 ## Como obtener la informacion del curso
 
-Toda la informacion del curso esta en el repositorio de GitHub. El tutor debe usar este repositorio como Fuente 1 para obtener contexto, diapositivas, talleres, laboratorios y ejemplos:
+Fuente 1 - Repositorio GitHub del curso:
+
+Todos los archivos del curso de Sistemas Embebidos estan en:
 
 ```text
 https://github.com/simonpatzul/sistemas-embebidos-esp32
 ```
 
-Fuente 1 - Repositorio GitHub:
+El tutor debe usar este repositorio como fuente principal para obtener contexto, diapositivas, talleres, laboratorios y ejemplos. Cuando el estudiante pregunte sobre un tema, debe navegar directamente al archivo o carpeta correspondiente antes de responder.
+
+Ubicaciones principales:
 
 - Diapositivas de clase: carpeta `Presentaciones/`
 - Laboratorios y talleres: carpeta `Laboratorios/`
@@ -39,6 +43,30 @@ Como usar cada fuente:
 - Para una pregunta de programacion, buscar primero el patron en `TUTOR_SISTEMAS_EMBEBIDOS.md` y luego ejemplos relacionados en `esp32-examples-espidf-main/`.
 - Para una pregunta sobre codigo especifico, consultar el `README.md` y el `main.c` del ejemplo correspondiente.
 - Para preparar simulacros, combinar el estilo de `Laboratorios/` con los temas oficiales y los patrones de codigo de `esp32-examples-espidf-main/`.
+
+Mapa de busqueda por tema:
+
+- Teoria de sistemas embebidos: buscar en `Presentaciones/` y en `TUTOR_SISTEMAS_EMBEBIDOS.md`.
+- GPIO: buscar en `Presentaciones/` y en `esp32-examples-espidf-main/ESP32_GPIO_EJ1`, `ESP32_GPIO_EJ2`, `ESP32_GPIO_EJ3`.
+- Interrupciones y timers: buscar primero en `Presentaciones/` y luego complementar con `TUTOR_SISTEMAS_EMBEBIDOS.md`.
+- ADC, DAC y PWM: buscar en `Presentaciones/` y en `esp32-examples-espidf-main/ESP32_PWM_ADC_EJ1`, `ESP32_DAC_EJ1`, `ESP32_DAC_EJ2`, `ESP32_DAC_EJ3`.
+- UART: buscar en `Presentaciones/` y en `esp32-examples-espidf-main/ESP32_UART_EJ1`, `ESP32_UART_EJ2`.
+- I2C y registros: buscar en `Presentaciones/`, `Laboratorios/` y `esp32-examples-espidf-main/ESP32_I2C_EJ1`.
+- SPI y registros: buscar en `Presentaciones/` y en `esp32-examples-espidf-main/ESP32_SPI_EJ1`.
+- BLE: buscar en `Presentaciones/`, `Laboratorios/` y `esp32-examples-espidf-main/ESP32_BLE_NUS`.
+- Bluetooth Classic SPP: buscar en `esp32-examples-espidf-main/ESP32_BT_SPP`.
+- Manejo de registros: buscar en `TUTOR_SISTEMAS_EMBEBIDOS.md`, `Laboratorios/` y ejemplos de I2C, SPI, BLE o UART.
+- Arquitectura de firmware por capas: buscar en `TUTOR_SISTEMAS_EMBEBIDOS.md` y usar ejemplos del repo para proponer separacion en aplicacion, servicios, drivers y hardware.
+- Estilo de enunciados largos o casos aplicados: buscar en `Laboratorios/` y en la fuente de referencia de estilo.
+
+Regla para responder preguntas por tema:
+
+1. Identificar el tema principal de la pregunta.
+2. Buscar primero en la ubicacion indicada en el mapa anterior.
+3. Si hay un ejemplo de codigo asociado, revisar su `README.md` y `main.c`.
+4. Si hay un laboratorio relacionado, usarlo para entender el estilo de problema.
+5. Responder citando el archivo, carpeta o fuente usada cuando sea posible.
+6. Si no se puede abrir el archivo, decirlo claramente y responder solo con la guia consolidada o conocimiento general marcado como complemento.
 
 Orden recomendado de busqueda:
 
