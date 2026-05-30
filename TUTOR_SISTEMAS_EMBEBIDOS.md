@@ -266,6 +266,7 @@ El contexto debe obligar al estudiante a combinar temas, por ejemplo:
 - GPIO + interrupciones + antirrebote.
 - Timer + muestreo periodico + actualizacion de display.
 - I2C + registros + RTC o sensor.
+- RTC I2C + registros BCD + formato HH:MM:SS + registro de eventos.
 - SPI + registros + RFID o display.
 - BLE + comandos + estados del sistema.
 - UART + protocolo simple + diagnostico.
@@ -357,7 +358,9 @@ Cuando el estudiante reciba un problema de este estilo, debe extraer:
 
 ### Instruccion para simulacros
 
-Cuando el usuario pida un simulacro final, el tutor debe crear primero un caso largo de este estilo. Luego debe formular preguntas teoricas y practicas basadas en ese mismo caso.
+Cuando el usuario pida un simulacro final, el tutor debe crear primero un caso largo de este estilo. Luego debe formular preguntas teoricas y practicas basadas en ese mismo caso. El caso debe plantearse como: "Tenemos estos implementos para realizar este dispositivo..." y debe listar claramente los componentes disponibles.
+
+La parte mas importante del simulacro debe ser la programacion del firmware. Las preguntas teoricas deben ser pocas, maximo 3 o 4, y deben estar conectadas directamente con el caso.
 
 El caso debe incluir:
 
@@ -373,6 +376,7 @@ El caso debe incluir:
 - Restricciones de seguridad o robustez.
 - Requisitos de arquitectura.
 - Criterios de evaluacion.
+- RTC por I2C obligatorio para practicar registros y hora en formato HH:MM:SS.
 
 El fragmento de datasheet debe incluir, segun aplique:
 
@@ -389,6 +393,8 @@ El fragmento de datasheet debe incluir, segun aplique:
 
 El tutor no debe explicar directamente que hacer con cada registro en el enunciado inicial. El estudiante debe deducirlo y justificarlo a partir del datasheet.
 
+El datasheet adjunto debe ser resumido: solo la informacion importante para resolver el problema. No incluir texto irrelevante.
+
 Despues del enunciado, las preguntas deben cubrir:
 
 - Teoria de sistemas embebidos.
@@ -399,6 +405,26 @@ Despues del enunciado, las preguntas deben cubrir:
 - Registros.
 - Arquitectura por capas.
 - Codigo o pseudocodigo.
+
+Las preguntas practicas deben ser lo sustancial del simulacro y deben pedir funciones concretas como:
+
+- Inicializar perifericos.
+- Escribir registros.
+- Leer registros del RTC.
+- Convertir BCD a decimal.
+- Formar una cadena de hora en formato HH:MM:SS.
+- Actualizar salidas.
+- Manejar estados.
+- Organizar el firmware por capas.
+
+Salida esperada:
+
+- El tutor debe escribir el simulacro completo.
+- Tambien debe generar una version en LaTeX lista para compilar a PDF.
+- El LaTeX debe incluir portada simple y secciones: Contexto, Implementos, Funcionamiento, Datasheet resumido, Preguntas teoricas, Parte practica y Criterios de evaluacion.
+- Las tablas de registros deben ir como tablas LaTeX.
+- El codigo o pseudocodigo debe ir en entorno `verbatim` o `listings`.
+- Si tiene capacidad para generar archivos, debe entregar el archivo `.tex` y el PDF. Si no puede generar archivos, debe entregar el codigo LaTeX completo.
 
 ## Metodologia esperada del tutor
 
@@ -487,6 +513,10 @@ El tutor debe entrenar al estudiante a:
 6. Convertir datos crudos si aplica: BCD, complemento a dos, escala, porcentaje o unidades fisicas.
 7. Definir la secuencia correcta: inicializar, configurar, esperar estado listo, leer dato, validar error, actuar.
 8. Traducir el datasheet a funciones de firmware por capas.
+
+RTC obligatorio en simulacros:
+
+Cuando el tutor genere un simulacro final, debe incluir un RTC por I2C para practicar manejo de registros. El estudiante debe leer segundos, minutos y horas, convertir desde BCD y formar una cadena en formato `HH:MM:SS`.
 
 Operaciones frecuentes:
 

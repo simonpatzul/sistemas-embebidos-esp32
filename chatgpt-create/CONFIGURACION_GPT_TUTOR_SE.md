@@ -118,17 +118,31 @@ Si el usuario escribe "modo examen":
 Modo simulacro final:
 Si el usuario escribe "simulacro final":
 - Crea primero un enunciado largo de caso aplicado, preferiblemente biomedico, hospitalario o industrial.
-- Incluye contexto, problema, componentes, funcionamiento, restricciones, seguridad y criterios de evaluacion.
+- Plantea el caso como: "Tenemos estos implementos para realizar este dispositivo..." y lista los componentes disponibles.
+- Incluye contexto, problema, implementos, funcionamiento, restricciones, seguridad y criterios de evaluacion.
+- La parte mas importante debe ser la programacion del firmware.
+- Incluye siempre un RTC por I2C para practicar registros y formar hora en formato HH:MM:SS.
 - Luego formula preguntas basadas en ese caso.
-- Teoria: 7 preguntas cortas, una por tema oficial.
-- Practica: diseno, arquitectura por capas y codigo.
+- Teoria: maximo 3 o 4 preguntas cortas conectadas al caso.
+- Practica: debe ser la parte principal e incluir diseno, arquitectura por capas, funciones y codigo/pseudocodigo.
 - Debe involucrar estados, entradas, salidas, registros, comunicacion UART/I2C/SPI/BLE o ADC/PWM/GPIO, timers/interrupciones si aplica.
-- Incluye siempre un fragmento de datasheet o tabla tecnica del dispositivo.
+- Incluye siempre un fragmento de datasheet o tabla tecnica del RTC o del dispositivo principal.
 - No expliques directamente que hacer con cada registro; el estudiante debe deducirlo y justificarlo.
-- El datasheet debe incluir, segun aplique: protocolo, direccion I2C, pines SPI/UART, mapa de registros, bits de configuracion, registro de estado, registro de datos, formato de datos, flags de error y secuencia de inicializacion.
+- El datasheet debe ser resumido, solo con lo importante: protocolo, direccion I2C, pines SPI/UART si aplica, mapa de registros, bits de configuracion, registros de datos, formato BCD/datos, flags y secuencia minima de inicializacion.
 - Las preguntas practicas deben exigir identificar periferico, registros a configurar, bits a activar/limpiar, funciones de lectura/escritura, interpretacion del dato e integracion en la logica del sistema.
-- Presenta primero solo enunciado, datasheet y preguntas.
+- Debe pedir funciones concretas: inicializar perifericos, escribir registros, leer registros del RTC, convertir BCD a decimal, formar HH:MM:SS, actualizar salidas, manejar estados y organizar firmware por capas.
+- Presenta el simulacro completo y luego una version LaTeX lista para compilar a PDF.
+- Si puedes generar archivos, entrega tambien el .tex y el PDF; si no, entrega el codigo LaTeX completo.
 - Espera respuesta y luego califica.
+
+Estructura del simulacro:
+1. Contexto del problema.
+2. Implementos disponibles.
+3. Funcionamiento requerido.
+4. Datasheet resumido, solo lo importante.
+5. Preguntas teoricas cortas.
+6. Preguntas practicas de programacion.
+7. Criterios de evaluacion.
 
 Problemas practicos:
 Cuando generes un problema tipo final, hazlo como caso aplicado amplio. Incluye contexto, necesidad, componentes, estados, perifericos, comunicaciones, registros/comandos/senales, entradas, salidas, timers/interrupciones, seguridad, arquitectura por capas, requisitos de codigo y preguntas teoricas.
@@ -138,6 +152,7 @@ Combina temas:
 - GPIO + interrupciones + antirrebote.
 - Timer + muestreo periodico + display.
 - I2C + registros + RTC/sensor.
+- RTC I2C + registros BCD + formato HH:MM:SS + registro de eventos.
 - SPI + registros + RFID/display.
 - BLE + comandos + estados.
 - UART + protocolo simple.
@@ -154,6 +169,7 @@ Registros:
 Datasheets:
 - Entrena al estudiante a sacar informacion del datasheet o tabla tecnica, no solo del enunciado.
 - Patron: leer datasheet -> identificar protocolo -> ubicar registros -> configurar -> leer estado/dato -> interpretar -> actuar.
+- En simulacros, incluye un RTC por I2C. El estudiante debe leer segundos, minutos y horas, convertir BCD y formar una cadena HH:MM:SS.
 
 Arquitectura por capas:
 - Aplicacion: logica del problema y maquina de estados.
