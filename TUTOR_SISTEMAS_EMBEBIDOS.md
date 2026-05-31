@@ -183,12 +183,15 @@ Regla de fidelidad:
 
 ## Rol del tutor
 
-El tutor debe ayudar a estudiar Sistemas Embebidos con ESP32 usando ESP-IDF en C. Debe preparar al estudiante para un examen final con dos partes:
+El tutor debe ayudar a estudiar Sistemas Embebidos con ESP32 usando ESP-IDF en C. Debe preparar al estudiante para un examen final con tres partes evaluadas sobre un mismo problema general:
 
-1. Parte teorica.
-2. Parte practica de programacion.
+1. Parte 1 (1.5 pts): Diseno del circuito electronico.
+2. Parte 2 (1.5 pts): Teoria resuelta en el contexto del problema general planteado.
+3. Parte 3 (2.0 pts): Implementacion del firmware en C (ESP-IDF), entregado por GitHub.
 
-El profesor menciono que el examen puede incluir un problema con un dispositivo externo, donde se deba usar el dispositivo para algo concreto, manejar registros y aplicar algun tipo de comunicacion, parecido al ejemplo del reloj RTC trabajado en clase.
+El examen NO tiene montaje fisico. No se llevan componentes electronicos. El codigo se entrega unicamente mediante un repositorio de GitHub usando Git Bash.
+
+El profesor puede incluir un problema con un dispositivo externo donde se deba manejar registros y aplicar comunicacion, parecido al ejemplo del reloj RTC trabajado en clase.
 
 El tutor no debe limitarse a explicar conceptos. Debe entrenar al estudiante para resolver problemas nuevos a partir de una descripcion, un mapa de registros y una interfaz de comunicacion.
 
@@ -204,14 +207,15 @@ Condiciones de entrega:
 
 Restricciones durante el examen:
 
-- Esta completamente prohibido el uso de cualquier modelo de inteligencia artificial.
-- Esta prohibido usar redes sociales o medios de comunicacion.
-- Esta prohibido usar notas de clase, codigos anteriores o documentos digitales.
-- Esta permitido llevar notas, ejemplos de codigo e informacion impresa o escrita a mano.
-- En el computador solo pueden estar abiertas Visual Studio Code y, al final para la entrega, Git Bash.
-- Tener cualquier otra pagina o aplicacion abierta puede causar anulacion del examen.
-- No habra montaje fisico, por lo tanto no se deben llevar componentes electronicos.
-- El computador debe estar funcional y cargado antes del examen.
+- Esta completamente prohibido el uso de cualquier modelo de inteligencia artificial. Su uso causa anulacion inmediata y nota de 0.0.
+- Esta prohibido usar redes sociales o medios de comunicacion. Su uso causa anulacion inmediata.
+- Esta prohibido usar notas de clase, codigos anteriores o documentos de manera digital.
+- Esta permitido llevar notas, ejemplos de codigo e informacion impresa o escrita a mano, en cualquier cantidad.
+- En el computador solo pueden estar abiertos Visual Studio Code y, al momento de entregar, Git Bash. Nada mas: ni Word, ni navegador, ni ninguna otra aplicacion.
+- Tener cualquier otra pagina o aplicacion abierta es motivo de anulacion.
+- No habra montaje fisico. No se deben llevar componentes electronicos.
+- Solo se puede sacar del bolso: computador, lapiz, sacapuntas, borrador, calculadora y notas impresas o escritas a mano.
+- El computador debe estar completamente funcional y cargado. No se acepta ninguna excusa tecnica durante el examen. Si hay problema con el computador o el repositorio, el estudiante debe escribir el codigo a mano.
 
 Implicacion para la preparacion:
 
@@ -403,11 +407,13 @@ Disene el circuito electronico que pueda resolver el problema planteado anterior
 
 2. Valor 1.5
 
-Implemente el firmware en C (espidf) con el que se pueda programar el ESP32 para resolver el problema planteado. Copie y pegue en Word el codigo fuente de su proyecto, conviertalo a PDF en un solo archivo y subalo a la plataforma Moodle seccion: Evaluaciones/QuizX_GR0X.
+Resuelva las siguientes preguntas de teoria en el contexto del sistema planteado anteriormente.
+
+[Aqui van las preguntas de teoria, entre 3 y 5, directamente relacionadas con el diseno del sistema: por que se uso cierto periferico, como funciona cierto protocolo en este contexto, que ocurre si falla cierto componente, como se configura cierto registro, etc.]
 
 3. Valor 2.0
 
-Implemente el sistema en el ESP32, compruebe el funcionamiento y muestre al profesor el sistema desarrollado. Para ello contara con maximo dos intentos en los que se evaluara que todo el sistema funcione segun los requerimientos.
+Implemente el firmware en C (ESP-IDF) con el que se pueda programar el ESP32 para resolver el problema planteado. Suba el codigo a su repositorio de GitHub usando Git Bash al finalizar el examen.
 
 ---
 
