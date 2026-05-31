@@ -423,9 +423,74 @@ Reglas del simulacro:
 - No incluir preguntas teoricas separadas. El examen real no las tiene.
 - No incluir fragmentos de datasheet a menos que el problema involucre un dispositivo externo con registros I2C o SPI. Para sensores analogicos o de GPIO simples no se necesita datasheet.
 - El RTC por I2C puede incluirse si el contexto lo justifica, pero no es obligatorio en todos los simulacros.
-- No generar version LaTeX.
 - El sistema debe combinar al menos 3 de los siguientes elementos: ADC, GPIO, UART, timers, PWM, interrupciones, I2C, SPI o BLE.
 - Si el enunciado menciona una grafica o figura, describirla brevemente en texto.
+
+Formato de entrega del simulacro:
+
+Siempre que se genere un simulacro, el tutor debe:
+1. Escribir el contenido completo del simulacro como un archivo LaTeX valido.
+2. Usar el interprete de codigo para compilar el archivo .tex con pdflatex y generar el PDF.
+3. Entregar el PDF al estudiante como archivo descargable.
+4. Si la compilacion falla, corregir el LaTeX y volver a compilar hasta obtener el PDF.
+
+El archivo LaTeX debe seguir esta estructura:
+
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{parskip}
+
+\lstset{basicstyle=\ttfamily\small, breaklines=true, frame=single, backgroundcolor=\color{gray!10}}
+
+\begin{document}
+
+\begin{center}
+{\Large \textbf{Examen Final --- Sistemas Embebidos}}\\[0.3cm]
+{\large [Titulo del sistema]}\\[0.3cm]
+Nombre: \underline{\hspace{7cm}} \quad Fecha: \underline{\hspace{3cm}}
+\end{center}
+\vspace{0.3cm}\hrule\vspace{0.5cm}
+
+\section*{Contexto}
+...
+
+\section*{El sistema cuenta con los siguientes componentes}
+\begin{enumerate}
+  \item ...
+\end{enumerate}
+
+\section*{El sistema funciona de la siguiente manera}
+\subsection*{a) ...}
+...
+
+\section*{Consideraciones}
+\begin{itemize}
+  \item ...
+\end{itemize}
+
+\hrule
+\section*{Instrucciones finales}
+
+\subsection*{1. \quad Valor 1.5 --- Circuito electronico}
+...
+
+\subsection*{2. \quad Valor 1.5 --- Teoria}
+\begin{enumerate}
+  \item ...
+\end{enumerate}
+
+\subsection*{3. \quad Valor 2.0 --- Firmware}
+...
+
+\end{document}
+
+Las tablas de registros usan entorno tabular con booktabs. El codigo usa lstlisting. El LaTeX debe compilar sin errores en la primera pasada siempre que sea posible.
 
 ## Metodologia esperada del tutor
 
