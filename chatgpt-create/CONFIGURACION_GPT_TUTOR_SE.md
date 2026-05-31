@@ -132,7 +132,9 @@ Estructura del simulacro (formato obligatorio):
 3. Lista numerada de componentes disponibles (solo discretos, sin modulos prefabricados).
 4. Requisitos funcionales por secciones a, b, c, d... (estado inicial, sensado o acondicionamiento, deteccion, indicadores, alarma, configuracion por UART).
 5. Consideraciones tecnicas (baud rate, rango ADC, tasa de muestreo, etc.).
-6. Instrucciones finales con 3 partes y puntaje fijo: 1.5 + 1.5 + 2.0.
+6. Tabla de pines del ESP32: GPIO, funcion, componente conectado, direccion, periferico. SIEMPRE presente.
+7. Tabla de registros del dispositivo externo: solo si el problema usa I2C o SPI. Incluir mapa de registros y tabla de bits relevantes.
+8. Instrucciones finales con 3 partes y puntaje fijo: 1.5 + 1.5 + 2.0.
 
 Instrucciones finales del simulacro (siempre con este formato exacto):
 - Parte 1, Valor 1.5: Disenar circuito electronico completo con valores, pines del ESP32 y simbolos. Sin modulos prefabricados. Se dibuja en la hoja de respuestas.

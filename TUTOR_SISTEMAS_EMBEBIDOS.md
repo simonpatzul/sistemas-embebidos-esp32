@@ -445,6 +445,7 @@ El archivo LaTeX debe seguir esta estructura:
 \usepackage{booktabs}
 \usepackage{enumitem}
 \usepackage{parskip}
+\usepackage{array}
 
 \lstset{basicstyle=\ttfamily\small, breaklines=true, frame=single, backgroundcolor=\color{gray!10}}
 
@@ -474,7 +475,57 @@ Nombre: \underline{\hspace{7cm}} \quad Fecha: \underline{\hspace{3cm}}
   \item ...
 \end{itemize}
 
+% --- TABLA DE PINES DEL ESP32 ---
+% Incluir SIEMPRE, con todos los pines usados en el sistema
+\section*{Tabla de pines del ESP32}
+\begin{center}
+\begin{tabular}{@{}cllll@{}}
+\toprule
+\textbf{GPIO} & \textbf{Funcion} & \textbf{Componente conectado} & \textbf{Direccion} & \textbf{Periferico ESP32} \\
+\midrule
+GPIOx & ... & ... & Salida & GPIO \\
+GPIOx & ... & ... & Entrada & ADC1\_CH0 \\
+GPIOx & ... & ... & Salida & LEDC (PWM) \\
+GPIOx & ... & ... & TX & UART0 \\
+GPIOx & ... & ... & RX & UART0 \\
+GPIOx & ... & ... & SDA & I2C \\
+GPIOx & ... & ... & SCL & I2C \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+% --- TABLA DE REGISTROS DEL DISPOSITIVO EXTERNO ---
+% Incluir SOLO si el problema usa un dispositivo I2C o SPI con registros internos.
+% Si el problema usa solo sensor analogico o GPIO, omitir esta seccion.
+\section*{Mapa de registros: [Nombre del dispositivo]}
+Direccion I2C: \texttt{0xXX} \quad Protocolo: I2C / SPI
+
+\begin{center}
+\begin{tabular}{@{}cllp{5cm}@{}}
+\toprule
+\textbf{Direccion} & \textbf{Nombre} & \textbf{Acceso} & \textbf{Descripcion} \\
+\midrule
+0x00 & NOMBRE\_REG & R/W & Descripcion del registro \\
+0x01 & NOMBRE\_REG & R   & Descripcion del registro \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+% Si los registros tienen campos de bits, agregar tabla de bits:
+\begin{center}
+\begin{tabular}{@{}clp{7cm}@{}}
+\toprule
+\textbf{Bit(s)} & \textbf{Nombre} & \textbf{Descripcion} \\
+\midrule
+7   & NOMBRE & Descripcion \\
+6:4 & NOMBRE & Descripcion \\
+3:0 & NOMBRE & Descripcion \\
+\bottomrule
+\end{tabular}
+\end{center}
+
 \hrule
+\vspace{0.3cm}
 \section*{Instrucciones finales}
 
 \subsection*{1. \quad Valor 1.5 --- Circuito electronico}
@@ -490,7 +541,12 @@ Nombre: \underline{\hspace{7cm}} \quad Fecha: \underline{\hspace{3cm}}
 
 \end{document}
 
-Las tablas de registros usan entorno tabular con booktabs. El codigo usa lstlisting. El LaTeX debe compilar sin errores en la primera pasada siempre que sea posible.
+Reglas para las tablas:
+- La tabla de pines del ESP32 va SIEMPRE en todos los simulacros, con los pines reales del sistema generado.
+- La tabla de registros del dispositivo externo va SOLO si el problema involucra un dispositivo I2C o SPI con registros internos. Si el sensor es analogico (ADC) o digital simple (GPIO), no incluirla.
+- Si hay tabla de registros, incluir tambien la tabla de bits de los registros relevantes.
+- Todos los valores de la tabla de pines deben ser coherentes con el circuito del problema: mismo GPIO, mismo componente, misma funcion.
+- El codigo usa lstlisting. El LaTeX debe compilar sin errores.
 
 ## Metodologia esperada del tutor
 
