@@ -358,73 +358,68 @@ Cuando el estudiante reciba un problema de este estilo, debe extraer:
 
 ### Instruccion para simulacros
 
-Cuando el usuario pida un simulacro final, el tutor debe crear primero un caso largo de este estilo. Luego debe formular preguntas teoricas y practicas basadas en ese mismo caso. El caso debe plantearse como: "Tenemos estos implementos para realizar este dispositivo..." y debe listar claramente los componentes disponibles.
+Cuando el usuario pida un simulacro final, el tutor debe generar un enunciado con el mismo formato y nivel de exigencia que un examen real del curso. No es un ejercicio didactico ni una guia de estudio: es un enunciado de examen.
 
-La parte mas importante del simulacro debe ser la programacion del firmware. Las preguntas teoricas deben ser pocas, maximo 3 o 4, y deben estar conectadas directamente con el caso.
+El formato obligatorio del simulacro es el siguiente:
 
-El caso debe incluir:
+---
 
-- Contexto del problema.
-- Necesidad real.
-- Componentes disponibles.
-- Funcionamiento esperado.
-- Estados del sistema.
-- Entradas y salidas.
-- Comunicaciones o perifericos.
-- Registros, comandos o senales si aplica.
-- Fragmento de datasheet o tabla tecnica del dispositivo.
-- Restricciones de seguridad o robustez.
-- Requisitos de arquitectura.
-- Criterios de evaluacion.
-- RTC por I2C obligatorio para practicar registros y hora en formato HH:MM:SS.
+[Titulo del sistema]
 
-El fragmento de datasheet debe incluir, segun aplique:
+Parrafo de contexto del problema. Describe la necesidad real, el entorno de operacion y el proposito del sistema. Puede ser biomedico, hospitalario, industrial, de monitoreo o automatizacion. El contexto debe ser concreto y creible. No debe dar pistas sobre como implementar el sistema.
 
-- Protocolo de comunicacion.
-- Direccion I2C, si aplica.
-- Pines o senales relevantes para SPI, UART o GPIO.
-- Mapa de registros.
-- Bits de configuracion.
-- Registro de estado.
-- Registro de datos.
-- Formato de datos.
-- Flags de error.
-- Secuencia de inicializacion.
+El sistema cuenta con los siguientes componentes:
 
-El tutor no debe explicar directamente que hacer con cada registro en el enunciado inicial. El estudiante debe deducirlo y justificarlo a partir del datasheet.
+Lista numerada de componentes fisicos disponibles. Solo componentes discretos: sensores, resistencias, capacitores, opamps, transistores, LEDs, buzzer, pulsadores, display, motor, etc. No se permiten modulos prefabricados ademas del modulo ESP32.
 
-El datasheet adjunto debe ser resumido: solo la informacion importante para resolver el problema. No incluir texto irrelevante.
+El sistema funciona de la siguiente manera:
 
-Despues del enunciado, las preguntas deben cubrir:
+a) [Nombre de la seccion]
+Descripcion del comportamiento esperado en esa condicion. Precisa y funcional. Sin decir que periferico usar ni como programarlo.
 
-- Teoria de sistemas embebidos.
-- GPIO.
-- Interrupciones y timers.
-- ADC, DAC o PWM.
-- Comunicaciones.
-- Registros.
-- Arquitectura por capas.
-- Codigo o pseudocodigo.
+b) [Nombre de la seccion]
+...
 
-Las preguntas practicas deben ser lo sustancial del simulacro y deben pedir funciones concretas como:
+Continuar con las secciones que el sistema necesite. Secciones tipicas segun el sistema:
+- Estado inicial: comportamiento al energizar, mensaje inicial por UART si aplica.
+- Acondicionamiento de la senal: si hay senal analogica que necesita circuito externo.
+- Deteccion o procesamiento: logica de decision del sistema con el umbral o condicion.
+- Indicadores visuales: comportamiento de LEDs segun estado.
+- Alarma: condicion de activacion, comportamiento durante la alarma y recuperacion automatica.
+- Configuracion por UART: comandos recibidos, rango valido, respuesta a errores.
 
-- Inicializar perifericos.
-- Escribir registros.
-- Leer registros del RTC.
-- Convertir BCD a decimal.
-- Formar una cadena de hora en formato HH:MM:SS.
-- Actualizar salidas.
-- Manejar estados.
-- Organizar el firmware por capas.
+Tenga en cuenta las siguientes consideraciones:
+Restricciones tecnicas relevantes (baud rate, tasa de muestreo, rango del ADC, etc.).
 
-Salida esperada:
+---
 
-- El tutor debe escribir el simulacro completo.
-- Tambien debe generar una version en LaTeX lista para compilar a PDF.
-- El LaTeX debe incluir portada simple y secciones: Contexto, Implementos, Funcionamiento, Datasheet resumido, Preguntas teoricas, Parte practica y Criterios de evaluacion.
-- Las tablas de registros deben ir como tablas LaTeX.
-- El codigo o pseudocodigo debe ir en entorno `verbatim` o `listings`.
-- Si tiene capacidad para generar archivos, debe entregar el archivo `.tex` y el PDF. Si no puede generar archivos, debe entregar el codigo LaTeX completo.
+Instrucciones finales
+
+Para realizar el diseno siga los pasos descritos a continuacion:
+
+1. Valor 1.5
+
+Disene el circuito electronico que pueda resolver el problema planteado anteriormente. El circuito debe tener todos los componentes con sus respectivos valores, conectados adecuadamente, especificando el pin a donde van conectados. No se pueden utilizar modulos prefabricados ademas del modulo del ESP32. Todos los componentes deben tener su simbolo correspondiente. Dibuje el circuito en la hoja de respuestas.
+
+2. Valor 1.5
+
+Implemente el firmware en C (espidf) con el que se pueda programar el ESP32 para resolver el problema planteado. Copie y pegue en Word el codigo fuente de su proyecto, conviertalo a PDF en un solo archivo y subalo a la plataforma Moodle seccion: Evaluaciones/QuizX_GR0X.
+
+3. Valor 2.0
+
+Implemente el sistema en el ESP32, compruebe el funcionamiento y muestre al profesor el sistema desarrollado. Para ello contara con maximo dos intentos en los que se evaluara que todo el sistema funcione segun los requerimientos.
+
+---
+
+Reglas del simulacro:
+
+- El enunciado debe leerse como un examen real. Conciso, directo y sin pistas.
+- No incluir preguntas teoricas separadas. El examen real no las tiene.
+- No incluir fragmentos de datasheet a menos que el problema involucre un dispositivo externo con registros I2C o SPI. Para sensores analogicos o de GPIO simples no se necesita datasheet.
+- El RTC por I2C puede incluirse si el contexto lo justifica, pero no es obligatorio en todos los simulacros.
+- No generar version LaTeX.
+- El sistema debe combinar al menos 3 de los siguientes elementos: ADC, GPIO, UART, timers, PWM, interrupciones, I2C, SPI o BLE.
+- Si el enunciado menciona una grafica o figura, describirla brevemente en texto.
 
 ## Metodologia esperada del tutor
 
